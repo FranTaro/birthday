@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certified Legend 🎂</title>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--pink:#ff8fba;--purple:#a78bfa;--ink:#543e66}
+body{
+  font-family:'Trebuchet MS',sans-serif;
+  background:linear-gradient(145deg,#fff0f6,#f0eaff,#fff5e9);
+  color:var(--ink);min-height:100vh;overflow-x:hidden
+}
+button{font:inherit;cursor:pointer}
+main{width:min(92%,680px);margin:auto;padding:34px 0 50px}
+section{
+  background:#ffffffc9;border:1px solid #fff;
+  border-radius:25px;padding:25px;margin:18px 0;
+  box-shadow:0 12px 35px #8d64a315
+}
+.center{text-align:center}
+.pill{
+  display:inline-block;border-radius:30px;background:#fff;
+  padding:9px 15px;font-size:12px;letter-spacing:2px
+}
+h1{font-size:clamp(2.5rem,9vw,4.5rem);line-height:1.1;
+color:#db5796;margin:20px 0}
+h2{font-size:1.6rem;color:#bb65bd;margin-bottom:14px}
+p{line-height:1.85}
+.sub{margin:15px auto;max-width:480px}
+.emoji{font-size:5rem;margin:20px 0;animation:bob 2s infinite}
+@keyframes bob{50%{transform:translateY(-9px)}}
+.avatar-wrap{
+  width:130px;height:130px;margin:18px auto 10px;
+  border-radius:50%;padding:4px;
+  background:linear-gradient(135deg,#ff8fba,#a78bfa);
+  box-shadow:0 8px 24px #ff8fba55;
+  animation:bob 3s ease-in-out infinite;
+}
+.avatar-img{
+  width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;
+  border:3px solid #fff;
+}
+.btn{
+  background:linear-gradient(120deg,#f77eaf,#a78bfa);
+  color:white;border:0;border-radius:30px;padding:14px 20px;
+  margin:8px 3px;font-weight:bold;box-shadow:0 5px 14px #c68bb333
+}
+.btn:hover{filter:brightness(1.04);transform:translateY(-2px)}
+.btn:focus-visible{outline:3px solid #7552a6;outline-offset:3px}
+.btn.secondary{background:white;color:#a24c91;border:1px solid #f0c6e4}
+.hidden{display:none!important}
+#home,#final{text-align:center}
+.stat{
+  background:#fff4fa;border-radius:18px;padding:17px;
+  margin:12px 0;text-align:left
+}
+.stat strong{display:block;color:#c45492;margin-bottom:5px}
+.photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.photo{
+  min-width:0;background:#fff;padding:10px 10px 14px;
+  border-radius:12px;box-shadow:0 6px 18px #76507b1a;
+  transform:rotate(-2deg);
+  transition:transform 0.25s ease, box-shadow 0.25s ease;
+  cursor:pointer;
+}
+.photo:nth-child(even){transform:rotate(2deg)}
+.photo:hover{
+  transform:scale(1.03) rotate(0deg);
+  box-shadow:0 10px 25px #76507b2c;
+  z-index:2;
+}
+.photo img{
+  display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;
+}
+.photo p{
+  font-size:13px;font-weight:600;text-align:center;margin-top:10px;color:#7c4d79;
+}
+.lightbox{
+  position:fixed;top:0;left:0;width:100vw;height:100vh;
+  background:rgba(0,0,0,0.85);z-index:999;display:flex;
+  align-items:center;justify-content:center;padding:20px;
+  cursor:pointer;
+}
+.lightbox.hidden{display:none!important}
+.lightbox img{
+  max-width:92vw;max-height:85vh;border-radius:12px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.5);
+  border:3px solid #fff;
+}
+.letter{white-space:pre-line;text-align:left;line-height:2}
+.big{font-size:3.5rem}
+footer{text-align:center;font-size:12px;padding:20px;color:#947a9d}
+.float{
+ position:fixed;bottom:-40px;z-index:-1;pointer-events:none;
+ animation:rise 10s linear infinite
+}
+@keyframes rise{to{transform:translateY(-115vh) rotate(360deg);opacity:0}}
+@media(max-width:450px){
+ main{width:92%;padding-top:22px}
+ section{padding:19px;border-radius:20px}
+ .btn{width:100%;margin:6px 0;min-height:48px}
+ .photo-grid{gap:10px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<main>
+
+<!-- PAGE 1: WELCOME -->
+<section id="home">
+  <span class="pill">⚠️ TOP SECRET BIRTHDAY FILE</span>
+  <div class="avatar-wrap">
+    <img src="photo1.jpg" alt="Birthday Legend" class="avatar-img">
+  </div>
+  <h1>HAPPY BIRTHDAY,<br>LEGEND!</h1>
+  <p class="sub">
+    A very serious investigation has revealed that
+    someone ridiculously annoying and ridiculously
+    important was born today.
+  </p>
+  <p><b>Suspect:</b> My favourite idiot 💗</p>
+  <p><b>Mission:</b> Survive this emotional website.</p>
+  <button class="btn" onclick="enter()">ENTER AT YOUR OWN RISK →</button>
+</section>
+
+<!-- PAGE 2: AWARDS -->
+<section id="awards" class="hidden">
+  <div class="center">
+    <span class="pill">CHAPTER 01 · OFFICIAL RECORDS</span>
+    <h2>🏆 The Birthday Awards</h2>
+    <p>After extensive research (absolutely no research), the jury has decided...</p>
+  </div>
+  <div class="stat">
+    <strong>🥇 CEO OF ANNOYING ME</strong>
+    Lifetime achievement. No competition.
+  </div>
+  <div class="stat">
+    <strong>🥈 PROFESSIONAL IDIOT</strong>
+    A rare talent. Unfortunately, completely natural.
+  </div>
+  <div class="stat">
+    <strong>🥉 MOST LIKELY TO MAKE ME LAUGH</strong>
+    Even when I'm trying very hard to be serious.
+  </div>
+  <div class="stat">
+    <strong>💗 THE UNREPLACEABLE HUMAN AWARD</strong>
+    No jokes here. This one is permanent.
+  </div>
+  <div class="center">
+    <button class="btn" onclick="go('memories')">NEXT: THE MEMORY MUSEUM →</button>
+  </div>
+</section>
+
+<!-- PAGE 3: YOUR MEMORIES -->
+<section id="memories" class="hidden">
+  <div class="center">
+    <span class="pill">CHAPTER 02 · THE EVIDENCE</span>
+    <h2>📸 Our Little Museum</h2>
+    <p>Proof that we've actually had some iconic moments. <i>(Click any photo to zoom)</i></p>
+  </div>
+  <div class="photo-grid">
+    <div class="photo" onclick="zoom('photo1.jpg')">
+      <img src="photo1.jpg" alt="The Birthday Queen">
+      <p>The Birthday Queen herself 👑💗</p>
+    </div>
+    <div class="photo" onclick="zoom('photo2.jpg')">
+      <img src="photo2.jpg" alt="A special memory">
+      <p>Looking iconic together 🌸✨</p>
+    </div>
+    <div class="photo" onclick="zoom('photo3.jpg')">
+      <img src="photo3.jpg" alt="Unforgettable moments">
+      <p>Unforgettable moments with you 🖤🥂</p>
+    </div>
+    <div class="photo" onclick="zoom('photo4.jpg')">
+      <img src="photo4.jpg" alt="Our shared brain cell">
+      <p>Our shared brain cell 😂🤪</p>
+    </div>
+  </div>
+  <p style="margin-top:20px;font-size:13px">
+    P.S. The embarrassing photos have been withheld from the public.
+    For now. 😌
+  </p>
+  <div class="center">
+    <button class="btn" onclick="go('letter')">NEXT: SOMETHING REAL 💌</button>
+  </div>
+</section>
+
+<!-- PAGE 4: LETTER -->
+<section id="letter" class="hidden">
+  <div class="center">
+    <span class="pill">CHAPTER 03 · NO MORE JOKES</span>
+    <div class="big">💌</div>
+    <h2>Okay, listen...</h2>
+  </div>
+  <div class="letter">
+Happy birthday to one of the most special people in my life. 🥹💗
+
+First of all, congratulations on getting older. I hope your maturity updates soon because this current version is questionable. 😂
+
+But seriously, I'm really glad I got to know you.
+
+Thank you for all the laughs, the random conversations, the stupid jokes, the little moments and the memories that might look ordinary to everyone else but mean something to me.
+
+I hope you know that you don't have to be funny, strong, happy or perfect all the time to be appreciated. You can simply be yourself.
+
+I hope this new year of your life brings you opportunities you're proud of, happiness you don't have to pretend to feel, people who genuinely support you, and countless reasons to believe in yourself.
+
+No matter how busy life gets or how much things change, I hope we keep making memories that we'll look back on and laugh about years from now.
+
+And yes, I'll still annoy you. That's a lifelong subscription. No cancellation policy. 🤡
+
+Thank you for being YOU.
+
+Happy birthday, you absolute legend. I'm genuinely grateful for our friendship, and I hope this year is incredibly good to you. 💗
+
+With love, laughter, and a lifetime supply of annoying messages,
+Your favourite human (obviously). 🎀
+  </div>
+  <div class="center">
+    <button class="btn" onclick="go('final')">ONE LAST THING... 🥹</button>
+  </div>
+</section>
+
+<!-- PAGE 5: THE FINALE -->
+<section id="final" class="hidden">
+  <div class="big">🎉💗🎂</div>
+  <span class="pill">MISSION COMPLETE</span>
+  <h1>YOU MATTER.<br>ALWAYS.</h1>
+  <p class="sub">
+    The world got you on your birthday.
+    I got lucky enough to get you as my friend.
+    And honestly? That's a pretty good deal.
+  </p>
+  <p style="font-size:1.1rem;margin:22px 0">
+    Happy birthday, you ridiculous, wonderful human. 🫶🏻
+  </p>
+  <button class="btn" onclick="celebrate()">MAKE SOME NOISE 🎊</button>
+  <button class="btn secondary" onclick="restart()">READ IT ALL AGAIN ↻</button>
+</section>
+
+<footer>
+  MADE WITH ♡, A LITTLE CHAOS & LOTS OF FRIENDSHIP<br>
+  © THE OFFICIAL BEST FRIEND DEPARTMENT
+</footer>
+</main>
+
+<div id="lightbox" class="lightbox hidden" onclick="this.classList.add('hidden')">
+  <img id="lightbox-img" src="" alt="Enlarged memory">
+</div>
+
+<script>
+function go(id){
+  document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function enter(){
+  go('awards');
+  celebrate();
+}
+function restart(){
+  go('home');
+}
+function zoom(src){
+  const lb = document.getElementById('lightbox');
+  const img = document.getElementById('lightbox-img');
+  img.src = src;
+  lb.classList.remove('hidden');
+}
+function celebrate(){
+  if(typeof confetti!=='function'){
+    alert('HAPPY BIRTHDAY!! 🎂💗');
+    return;
+  }
+  confetti({
+    particleCount:180,spread:110,origin:{y:.65},
+    colors:['#ff8fba','#a78bfa','#ffd166','#ffffff','#ffb997']
+  });
+  const end=Date.now()+1800;
+  (function frame(){
+    confetti({
+      particleCount:3,angle:60,spread:55,origin:{x:0,y:.7},
+      colors:['#ff8fba','#a78bfa','#ffd166']
+    });
+    confetti({
+      particleCount:3,angle:120,spread:55,origin:{x:1,y:.7},
+      colors:['#ff8fba','#a78bfa','#ffd166']
+    });
+    if(Date.now()<end)requestAnimationFrame(frame);
+  })();
+}
+['💗','✨','🎀','💕','🌸'].forEach((symbol,i)=>{
+  for(let j=0;j<2;j++){
+    const el=document.createElement('span');
+    el.className='float';
+    el.textContent=symbol;
+    el.style.left=Math.random()*100+'%';
+    el.style.animationDelay=(-Math.random()*10)+'s';
+    el.style.animationDuration=(8+Math.random()*8)+'s';
+    el.style.fontSize=(18+Math.random()*12)+'px';
+    document.body.appendChild(el);
+  }
+});
+</script>
+</body>
+</html>
